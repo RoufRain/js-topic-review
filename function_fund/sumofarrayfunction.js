@@ -10,7 +10,7 @@ console.log(sumOfArray([3, 4, 5, 6, 6]));
 //using for of loop
 function sumOfArray(array) {
   let sum = 0;
-  for (numbers of array) {
+  for (const numbers of array) {
     sum = sum + numbers;
   }
   return sum;
