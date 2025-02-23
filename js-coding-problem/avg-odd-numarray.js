@@ -15,7 +15,7 @@ function avgOddNum(arr) {
 
   const count = oddNum.length;
   const avgOfOddNum = sum / count;
-  console.log("summation of odd array ", sum +   " array length is:"  count);
+  console.log("summation of odd array ", sum, "& array length is:", count);
   return avgOfOddNum;
 }
 const arr = avgOddNum([5, 5, 9, 65, 45, 20]);
