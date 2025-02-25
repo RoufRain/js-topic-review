@@ -1,5 +1,15 @@
 const tarikh = new Date();
 // console.log(tarikh);
+//simple
+const today = new Date();
+const date = new Date("2056-12-20");
+console.log(date.getMonth());
+console.log(date.getDay());
+const specificDate = new Date(2094, 0, 28);
+console.log(specificDate);
+specificDate.setMonth(10);
+console.log(specificDate);
+
 const d = new Date(2018);
 console.log(d);
 
