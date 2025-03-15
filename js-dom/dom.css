@@ -4,3 +4,10 @@ h1 {
 header {
   font-size: 40px;
 }
+
+.fruits-name {
+  color: red;
+}
+#fruits-title {
+  color: blueviolet;
+}
