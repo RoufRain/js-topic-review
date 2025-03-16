@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js dom event</title>
+  </head>
+  <body>
+    <h1>Js Dom event</h1>
+    <button
+      onclick="console.log('clicked');
+      
+    "
+    >
+      click Me!
+    </button>
+    <!-- option 1 event handling -->
+    <button onclick="document.body.style.backgroundColor='orange'">
+      background color changed!
+    </button>
+    <button onclick="makeRed()">make red!</button>
+    <button id="make-blue">make blue!</button>
+
+    <!-- js connection -->
+    <script src="dom-event.js"></script>
+    <script>
+      //js event handling
+      //option 2
+      function makeRed() {
+        document.body.style.backgroundColor = "red";
+      }
+      //option 3
+      const makeBlueButton = document.getElementById("make-blue");
+      makeBlueButton.onclick = makeBlue;
+      function makeBlue() {
+        document.body.style.backgroundColor = "blue";
+      }
+    </script>
+  </body>
+</html>
