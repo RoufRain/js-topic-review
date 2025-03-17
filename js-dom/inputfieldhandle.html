@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input field</title>
+  </head>
+  <body>
+    <h1>Input field handling by eventListener</h1>
+    <section>
+      <p id="change-text">this is text default</p>
+      <button onclick="changeText()">change button</button>
+      <button id="change-button">change event button</button><br />
+      <br />
+      <p id="input-text">this is input field text</p>
+      <input type="text" name="" id="input-field" />
+      <button id="input-button">click me!</button>
+    </section>
+    <!-- for js -->
+    <script>
+      function changeText() {
+        const changeText = document.getElementById("change-text");
+        changeText.innerText = "this is changed text";
+      }
+      //change text using eventListener
+      document
+        .getElementById("change-button")
+        .addEventListener("click", function () {
+          document.getElementById("change-text").innerText =
+            "this text changed by eventHandler";
+        });
+      //input field handle with evnetListener
+
+      document
+        .getElementById("input-button")
+        .addEventListener("click", function () {
+          let inputFieldText = document.getElementById("input-field").value;
+          const inputText = document.getElementById("input-text");
+          inputText.innerText = inputFieldText;
+          //for input field clear after click button
+          document.getElementById("input-field").value = " ";
+        });
+    </script>
+  </body>
+</html>
