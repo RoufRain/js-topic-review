@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>button enable</title>
+  </head>
+  <body>
+    <!-- button enable when input text in input field -->
+    <h1>enable disable button</h1>
+    <input id="input-field" type="text" placeholder="please input delete" />
+    <button id="delete-button" disabled>Delete</button>
+    <script>
+      document
+        .getElementById("input-field")
+        .addEventListener("keyup", function (event) {
+          const text = event.target.value;
+          console.log(text);
+
+          const deleteButton = document.getElementById("delete-button");
+          if (text === "delete") {
+            deleteButton.removeAttribute("disabled");
+          } else {
+            deleteButton.setAttribute("disabled", true);
+          }
+        });
+    </script>
+  </body>
+</html>
