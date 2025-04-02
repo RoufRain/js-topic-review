@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bank</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
@@ -12,26 +12,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <div>
-      <div class="h-24 border border-7">
-        <p>hellllllo</p>
-      </div>
-      <divider></divider>
-
+    <form>
       <div class="hero-content flex-col lg:flex-row-reverse">
         <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div class="card-body">
+            <div class="border border-2 p-4">
+              <p class="justify-center text-xl font-bold">
+                Total Amount : 5000
+              </p>
+            </div>
+            <div class="flex justify-center gap-3">
+              <button class="btn btn-primary mt-4">Add Money</button>
+              <button class="btn btn-error mt-4">Money Out</button>
+            </div>
+            <div class="divider"></div>
             <fieldset class="fieldset">
-              <label class="fieldset-label">Email</label>
-              <input type="email" class="input" placeholder="Email" />
-              <label class="fieldset-label">Password</label>
-              <input type="password" class="input" placeholder="Password" />
-
-              <button class="btn btn-neutral mt-4">Login</button>
+              <label class="fieldset-label">Amount</label>
+              <input
+                id="input-amount"
+                type="text"
+                class="input"
+                placeholder="Enter Amount"
+              />
+              <label class="fieldset-label">Pin</label>
+              <input
+                id="input-pin"
+                type="password"
+                class="input"
+                placeholder="Pin Number"
+              />
+              <div class="">
+                <button
+                  id="out-btn"
+                  class="btn btn-active btn-error w-full mt-4"
+                >
+                  Money Out
+                </button>
+              </div>
             </fieldset>
           </div>
         </div>
       </div>
-    </div>
+    </form>
+    <!-- for js -->
+    <script>
+      document
+        .getElementById("out-btn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          //for get input amount
+          const inputAmount = document.getElementById("input-amount").value;
+          const inputPin = document.getElementById("input-pin").value;
+          console.log(inputPin);
+          console.log(inputAmount);
+        });
+    </script>
   </body>
 </html>
