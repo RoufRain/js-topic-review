@@ -23,11 +23,16 @@
               </p>
             </div>
             <div class="flex justify-center gap-3">
-              <button class="btn btn-primary mt-4">Add Money</button>
-              <button class="btn btn-error mt-4">Money Out</button>
+              <button id="add-btn-change" class="btn btn-primary mt-4">
+                Add Money
+              </button>
+              <button id="out-btn-change" class="btn btn-error mt-4">
+                Money Out
+              </button>
             </div>
             <div class="divider"></div>
-            <fieldset class="fieldset">
+            <!-- for add money -->
+            <fieldset id="add-money-section" class="fieldset">
               <label class="fieldset-label">Amount</label>
               <input
                 id="input-amount"
@@ -38,6 +43,31 @@
               <label class="fieldset-label">Pin</label>
               <input
                 id="input-pin"
+                type="password"
+                class="input"
+                placeholder="Pin Number"
+              />
+              <div class="">
+                <button
+                  id="add-btn"
+                  class="btn btn-active btn-error w-full mt-4"
+                >
+                  Add Money
+                </button>
+              </div>
+            </fieldset>
+            <!-- for out money -->
+            <fieldset id="out-money-section" class="fieldset hidden">
+              <label class="fieldset-label">Amount</label>
+              <input
+                id="input-out-amount"
+                type="text"
+                class="input"
+                placeholder="Enter Amount"
+              />
+              <label class="fieldset-label">Pin</label>
+              <input
+                id="input-out-pin"
                 type="password"
                 class="input"
                 placeholder="Pin Number"
@@ -57,8 +87,9 @@
     </form>
     <!-- for js -->
     <script>
+      //for add money
       document
-        .getElementById("out-btn")
+        .getElementById("add-btn")
         .addEventListener("click", function (e) {
           e.preventDefault();
           //for get input amount
@@ -67,21 +98,60 @@
           const currentAmount =
             document.getElementById("avb-balance").innerText;
 
-          // console.log(currentAmount);
           if (inputPin === "1234") {
             const accBalance = parseFloat(currentAmount);
             const inputBalance = parseFloat(inputAmount);
             const newBalance = accBalance + inputBalance;
             document.getElementById("avb-balance").innerText = newBalance;
-            inputAmount = " ";
-            inputPin = " ";
           } else {
-            console.log("wrong input! please input valid number or pin");
+            alert("wrong input! please input valid number or pin");
           }
         });
-      //for add money verify pin numb er
+      //for money out
+      document
+        .getElementById("out-btn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          //for get input amount
+          let inputAmount = document.getElementById("input-out-amount").value;
+          let inputPin = document.getElementById("input-out-pin").value;
+          const currentAmount =
+            document.getElementById("avb-balance").innerText;
 
-      // console.log(newBalance);
+          if (inputPin === "1234") {
+            const accBalance = parseFloat(currentAmount);
+            const inputBalance = parseFloat(inputAmount);
+            const newBalance = accBalance - inputBalance;
+            document.getElementById("avb-balance").innerText = newBalance;
+          } else {
+            alert("wrong input! please input valid number or pin");
+          }
+        });
+    </script>
+    <!--for toggle feature-->
+    <script>
+      //for out money btn
+      document
+        .getElementById("out-btn-change")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .getElementById("out-money-section")
+            .classList.remove("hidden");
+
+          document.getElementById("add-money-section").classList.add("hidden");
+        });
+      //for add money btn
+      document
+        .getElementById("add-btn-change")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .getElementById("add-money-section")
+            .classList.remove("hidden");
+
+          document.getElementById("out-money-section").classList.add("hidden");
+        });
     </script>
   </body>
 </html>
