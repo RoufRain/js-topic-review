@@ -17,8 +17,9 @@
         <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div class="card-body">
             <div class="border border-2 p-4">
-              <p class="justify-center text-xl font-bold">
-                Total Amount : 5000
+              <p>Available Balance</p>
+              <p id="avb-balance" class="justify-center text-xl font-bold">
+                5000
               </p>
             </div>
             <div class="flex justify-center gap-3">
@@ -61,18 +62,26 @@
         .addEventListener("click", function (e) {
           e.preventDefault();
           //for get input amount
-          const inputAmount = document.getElementById("input-amount").value;
-          const inputPin = document.getElementById("input-pin").value;
-          console.log(inputPin);
-          console.log(inputAmount);
+          let inputAmount = document.getElementById("input-amount").value;
+          let inputPin = document.getElementById("input-pin").value;
+          const currentAmount =
+            document.getElementById("avb-balance").innerText;
+
+          // console.log(currentAmount);
+          if (inputPin === "1234") {
+            const accBalance = parseFloat(currentAmount);
+            const inputBalance = parseFloat(inputAmount);
+            const newBalance = accBalance + inputBalance;
+            document.getElementById("avb-balance").innerText = newBalance;
+            inputAmount = " ";
+            inputPin = " ";
+          } else {
+            console.log("wrong input! please input valid number or pin");
+          }
         });
-      // document
-      //   .getElementById("out-btn")
-      //   .addEventListener("click", function (e) {
-      //     e.preventDefault();
-      //     const inputPin = document.getElementById("input-pin");
-      //     console.log(inputPin);
-      //   });
+      //for add money verify pin numb er
+
+      // console.log(newBalance);
     </script>
   </body>
 </html>
