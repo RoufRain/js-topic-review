@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label htmlFor="">name</label>
+      <input id="input-name" type="text" />
+      <label htmlFor="">pass</label>
+      <input id="input-pass" type="text" />
+      <button id="btn-click" onclick="getNamePass('input-name','input-pass')">
+        Submit
+      </button>
+    </form>
+    <!-- for js -->
+    <script>
+      document
+        .getElementById("btn-click")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+        });
+      function getNamePass(id1, id2) {
+        let nameValue = document.getElementById(id1).value;
+
+        console.log(nameValue);
+        let passValue = document.getElementById(id2).value;
+        console.log(passValue);
+      }
+    </script>
+  </body>
+</html>
